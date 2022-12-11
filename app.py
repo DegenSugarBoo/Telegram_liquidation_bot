@@ -6,7 +6,7 @@ import json
 import requests
 
 token='5801845290:AAFQKKjdqY5bzbHWcjhOCoRRzqgN9zWucQU'
-id='mean_rev_sid'
+id='binance_liq_data_sid'
 def send_message_on_telegram(message):
     url=f'https://api.telegram.org/bot{token}/sendMessage?chat_id=@{id}&text={message}'
     tel_resp= requests.get(url)
@@ -28,10 +28,10 @@ async def bin_liq(url):
                 ap=float(msg["ap"])
                 q=float(msg["q"])
                 if msg['S'] == 'SELL' :
-                    ab = f'%{msg["s"]} Long Liquidation : ${ap * q} at ${ap}'
+                    ab = f'🔴 #{msg["s"]} Long Liquidation : ${ap * q} at ${ap}'
                     send_message_on_telegram(ab)
                 if msg['S'] == 'BUY'  :
-                    ab = f'%{msg["s"]} Short Liquidation : ${ap * q} at ${ap}'
+                    ab = f'🟢 #{msg["s"]} Short Liquidation : ${ap * q} at ${ap}'
                     
                     send_message_on_telegram(ab)
                 
