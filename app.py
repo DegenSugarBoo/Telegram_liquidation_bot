@@ -28,10 +28,10 @@ async def bin_liq(url):
                 ap=float(msg["ap"])
                 q=float(msg["q"])
                 if msg['S'] == 'SELL' :
-                    ab = f'🔴 #{msg["s"]} Long Liquidation : ${ap * q} at ${ap}'
+                    ab = f'#{msg["s"]}  🔴Long Liquidation : ${ap * q} at ${ap}'
                     send_message_on_telegram(ab)
                 if msg['S'] == 'BUY'  :
-                    ab = f'🟢 #{msg["s"]} Short Liquidation : ${ap * q} at ${ap}'
+                    ab = f'#{msg["s"]}  🟢Short Liquidation : ${ap * q} at ${ap}'
                     
                     send_message_on_telegram(ab)
                 
