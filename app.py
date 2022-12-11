@@ -25,11 +25,13 @@ async def bin_liq(url):
                 msg=await websocket.recv()
                 print(msg)
                 msg=json.loads(msg)['o']
+                ap=int(msg["ap"])
+                q=int(msg["q"])
                 if msg['S'] == 'SELL' :
-                    ab = f'%{msg["s"]} Long Liquidation : ${msg["ap"] * msg["q"]} at ${msg["ap"]}'
+                    ab = f'%{msg["s"]} Long Liquidation : ${ap * q} at ${ap}'
                     send_message_on_telegram(ab)
                 if msg['S'] == 'BUY'  :
-                    ab = f'%{msg["s"]} Short Liquidation : ${msg["ap"] * msg["q"]} at ${msg["ap"]}'
+                    ab = f'%{msg["s"]} Short Liquidation : ${ap * q} at ${ap}'
                     
                     send_message_on_telegram(ab)
                 
