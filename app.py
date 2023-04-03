@@ -5,7 +5,7 @@ from websockets import connect
 import json
 import requests
 
-token='5801845290:AAFQKKjdqY5bzbHWcjhOCoRRzqgN9zWucQU'
+token='6241983631:AAGbjU0nzQP0l3RJG_Sv9-otbvp3ZrRffjk'
 id='binance_liq_data_sid'
 def send_message_on_telegram(message):
     url=f'https://api.telegram.org/bot{token}/sendMessage?chat_id=@{id}&text={message}'
